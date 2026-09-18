@@ -3,48 +3,39 @@
 #include <ctime>
 
 const int TRACK=15;
+const int SIZE=5;
 
 void advance(int horseNum, int* horses){
-  horseNum++;
-
+  int coinFlip = rand() % 2; 
+  horses[horseNum] += coinFlip;
 } // end of advance
 
 void printLane(int horseNum, int* horses){
-  for (i = 0; i < TRACK; i++){
-    if horses[i] == horseNum{
+  for (int i = 0; i < TRACK; i++){
+    if (i == horses[horseNum]){
       std::cout << horseNum;
     } else { 
       std::cout << ".";
     }
   }
+  std::cout << std::endl;
 } // end of printLane
 
-void isWinner(int horseNum, int* horses){
+bool isWinner(int horseNum, int* horses){
+  if (horses[horseNum] == TRACK){
+    return true;
+  }
 } // end of isWinner
 
-void coinFlip(){
-  srand(time(NULL));
-  int coin = rand() % 2;
-
-  std::cout << coin << std::endl;
-} // coin flip end
-
 int main(){
-  
-  int horses[5];
-  int horseNum = 0;
+  srand(time(NULL));
 
+  int horses[SIZE] = {0};
   bool keepGoing = true;
 
-  while (keepGoing);
-    for (i = 0; i < horses; i++){
-      advance(horseNum, &horses);
-      printlane(horseNum, &horses);
-      if isWinner(horseNum, &horses) == true{
-        keepGoing = false;
-      }
-      std::cout << "Press Enter for the next turn: ";
-      std::cin >> userInput;
-
+  for (int i = 0; i < 5; i++){
+    printLane(horses[i], horses);
+    advance(horses[i], horses);
+  }
   return (0);
 } // end of main
