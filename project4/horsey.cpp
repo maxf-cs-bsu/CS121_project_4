@@ -23,8 +23,10 @@ void printLane(int horseNum, int* horses){
 
 bool isWinner(int horseNum, int* horses){
   if (horses[horseNum] == TRACK){
+    std::cout << "Horse #" << horseNum << " Wins!!!" << std::endl;
     return true;
   }
+  return false;
 } // end of isWinner
 
 int main(){
@@ -35,9 +37,9 @@ int main(){
 
   while (keepGoing){
     for (int i = 0; i < AMOUNT_HORSES; i++){
-      printLane(horses[i], horses);
-      advance(horses[i], horses);
-      if (isWinner(horses[i], horses)){
+      printLane(i, horses);
+      advance(i, horses);
+      if (isWinner(i, horses)){
         keepGoing = false;
       }
     }
