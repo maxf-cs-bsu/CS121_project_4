@@ -20,7 +20,7 @@ bool isWinner(int horseNum, int* horses);
   if horseNum position == TRACK
     return true; // or some other way to say to finished
   else
-    do nothing at all
+    return false;
       
 
 main();
@@ -29,9 +29,9 @@ main();
   set a keepGoing value to True
   while keepGoing;
     run through each horseNum's array;
-      advance()
-      printLane()
-      if isWinner() returns True;
+      advance(index, horses)
+      printLane(index, horses)
+      if isWinner(index, horses) returns True;
         set keepGoing to False;
     get user input for each round
 ```
